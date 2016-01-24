@@ -4,29 +4,6 @@ Math.radians = function(degrees) {
 	return degrees * Math.PI / 180;
 };
 
-function Point (x, y, z) {
-		this.x = x;
-		this.y = y;
-		this.z = z || 0;
-}
-
-Point.prototype.move = function move(decalX, decalY, decalZ) {
-	this.x += decalX;
-	this.y += decalY;
-	this.z += decalZ || 0;
-}
-
-function Line (startPoint, endPoint) {
-	this.pointStart = new Point (startPoint.posX, startPoint.posY, startPoint.posZ);
-	this.pointEnd = new Point (endPoint.posX, endPoint.posY, endPoint.posZ);
-	this.centreGravite = {x:0, y:0, z:0};
-}
-
-Line.prototype.move = function move(decalX, decalY, decalZ) {
-	this.pointStart.deplacer (decalX, decalY, decalZ);
-	this.pointEnd.deplacer (decalX, decalY, decalZ);
-};
-
 function MatrixComportement () {
 	this.identity = 
 		[1, 0, 0, 0,
@@ -170,13 +147,7 @@ ImageDom.prototype.insert = function(domElem) {
 	domElem.appendChild (this.domRef); 
 };
 
-function TwoDForm (lineComposition) {
-	this.linesLen = lineComposition.length;
-	this.lines = [];
-	for (var i = 1; i < this.linesLen; i++){
-		this.lines.push (new Line(lineComposition[i-1].x, lineComposition[i-1].y, lineComposition[i-1].z, lineComposition[i].x, lineComposition[i].y, lineComposition[i].z));
-	}
-	this.lines.push (new Line (lineComposition[this.linesLen-1].x, lineComposition[this.linesLen-1].y, lineComposition[this.linesLen-1].x, lineComposition[0].x, lineComposition[0].y, lineComposition[0].z));
+function TwoDForm () {
 	this.matrix = new MatrixComportement();
 }
 

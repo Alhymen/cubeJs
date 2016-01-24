@@ -10,8 +10,8 @@
 	<script src="./cube.js">
 	</script>
 	<script>
-		var t = new CubeAvecDomImage(300, "http://diversitudes.fr/img/2012/05/26rrbijj.jpg");
-		t.inserer(document.body);
-		window.onmousemove=function(m){t.rotate(0, -m.clientX, m.clientY)};
+		var t = new DomImgCube(300, "http://diversitudes.fr/img/2012/05/26rrbijj.jpg");
+		t.insert(document.body);
+		window.onmousemove=function(m){t.rotate(-m.clientY/2, -m.clientX/2, m.clientY)};
 	</script>
 </html>

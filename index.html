@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Paramétrer équipement</title>
+	</head>
+	<body>
+		<!-- affichage de la partie gauche avec les emplacement d'équipement -->
+		<!-- affichage de la partie droite avec les items équipable -->
+	</body>
+	<script src="./cube.js">
+	</script>
+	<script>
+		var t = new CubeAvecDomImage(300, "http://diversitudes.fr/img/2012/05/26rrbijj.jpg");
+		t.inserer(document.body);
+		window.onmousemove=function(m){t.rotate(0, -m.clientX, m.clientY)};
+	</script>
+</html>

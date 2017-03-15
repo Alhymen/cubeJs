@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Paramétrer équipement</title>
+		<title>Démo cube</title>
+		<style>
+			#cube img {
+				opacity: 0.9;
+			}
+		</style>
 	</head>
 	<body>
+		<script src="./cube.js"></script>
+		<script>
+			var cube = new DomImgCube(300, "http://diversitudes.fr/img/2012/05/26rrbijj.jpg");
+			var cubeDom = cube.getDomElement();
+			cubeDom.id = "cube";
+			document.body.appendChild(cubeDom);
+			window.onmousemove = function(m) {
+				cube.rotate(-m.clientY / 2, -m.clientX / 2, m.clientY)
+			};
+		</script>
 	</body>
-	<script src="./cube.js">
-	</script>
-	<script>
-		var t = new DomImgCube(300, "http://diversitudes.fr/img/2012/05/26rrbijj.jpg");
-		t.insert(document.body);
-		window.onmousemove=function(m){t.rotate(-m.clientY/2, -m.clientX/2, m.clientY)};
-	</script>
 </html>
